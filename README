@@ -1,0 +1,20 @@
+libepub is a simple Python utility to work with epub files.
+
+-----
+Usage
+-----
+
+from libepub.epub import Book
+
+path = 'sample.epub' # or any valid path to an .epub file
+book = Book(path)
+
+# Info about author, title, language, publisher, etc.
+print "Metadata: ", book.metadata
+
+# Chapters of the book
+print "Chapters: ", book.chapters
+
+# Content of chapter 1
+first_chapter = book.chapters[1]
+print first_chapter.content

@@ -12,8 +12,12 @@ class Book:
 	
 	def __init__(self, path):
 		self.archive = zipfile.ZipFile(path, 'r') # read-only for now
+		
+		# Path to the OPF file which points to book content
 		self.opf_path = self._get_opf_path()
 		self._parse_opf()
+		
+		# The content of this book, divided into chapters
 		self.chapters = [Chapter(self.archive.open("OEBPS/" + self.manifest[chapter]['href'])) for chapter in self.spine]
 		
 	def _get_opf_path(self):
