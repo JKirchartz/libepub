@@ -14,7 +14,7 @@ class Book:
 		self.archive = zipfile.ZipFile(path, 'r') # read-only for now
 		self.opf_path = self._get_opf_path()
 		self._parse_opf()
-		self.chapters = [Chapter(self.archive.open(self.manifest[chapter]['href'])) for chapter in self.spine]
+		self.chapters = [Chapter(self.archive.open("OEBPS/" + self.manifest[chapter]['href'])) for chapter in self.spine]
 		
 	def _get_opf_path(self):
 		"""Get the path to the OPF file for this epub"""
@@ -87,3 +87,4 @@ class Chapter:
 		
 if __name__ == "__main__":
 	b = Book('sample.epub')
+	print b.chapters
