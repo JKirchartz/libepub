@@ -78,13 +78,20 @@ class Book:
 		base_index = root.tag.index('}')
 		base_tag = ".//" + root.tag[:(base_index + 1)]
 		return base_tag
+	
+	def __str__(self):
+		return str([str(chp) for chp in self.chapters])
 		
 class Chapter:
 	
 	def __init__(self, chapter_file):
 		self.content = chapter_file.read()
 		
+	def __str__(self):
+		html = etree.HTML(self.content)
+		return html.find(".//title").text
+		
 		
 if __name__ == "__main__":
 	b = Book('sample.epub')
-	print b.chapters
+	print b
