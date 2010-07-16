@@ -23,4 +23,4 @@ print "Chapters: ", book.chapters
 # Content of chapter 1
 first_chapter = book.chapters[1]
 print first_chapter.content
-</pre><notextile>
+</pre></notextile>
