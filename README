@@ -1,9 +1,14 @@
+h1. libepub
+
 libepub is a simple Python utility to work with epub files.
 
------
-Usage
------
+h2. Dependencies
 
+* lxml
+
+h2. Basic Examples
+
+<notextile><pre>
 from libepub.epub import Book
 
 path = 'sample.epub' # or any valid path to an .epub file
@@ -18,3 +23,4 @@ print "Chapters: ", book.chapters
 # Content of chapter 1
 first_chapter = book.chapters[1]
 print first_chapter.content
+</pre><notextile>
